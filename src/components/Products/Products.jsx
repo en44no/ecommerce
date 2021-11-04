@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  Box, Grid, GridItem,
+  Box, Flex, GridItem, Text,
 } from '@chakra-ui/react';
 import Product from './Product/Product';
 
@@ -11,26 +11,27 @@ const Products = (props) => {
 
   return (
     <>
-      <Box position="relative" top="6rem" h="200vh" px={5}>
-        <Grid
-          justifyItems="center"
-          templateRows="repeat(2, 1fr)"
-          templateColumns="repeat(5, 1fr)"
-          gap={5}
+      <Box position="relative" top="5.5rem" h="100vh" px={5}>
+        <Flex
+          justifyContent="center"
+          flexWrap="wrap"
         >
-          {products.map((product) => (
-            <GridItem key={product.id}>
-              <Product
-                product={product}
-                addToCart={addToCart}
-                maxSameItemsOnCart={maxSameItemsOnCart}
-                productIsOnCart={productIsOnCart}
-                removeItem={removeItem}
-              />
+          {!products ? <Text fontSize="2xl" fontWeight="500" mt={5}>Actualmente no contamos con productos.</Text> : (
+            products.map((product) => (
+              <GridItem key={product.id}>
+                <Product
+                  product={product}
+                  addToCart={addToCart}
+                  maxSameItemsOnCart={maxSameItemsOnCart}
+                  productIsOnCart={productIsOnCart}
+                  removeItem={removeItem}
+                />
 
-            </GridItem>
-          ))}
-        </Grid>
+              </GridItem>
+            ))
+          )}
+
+        </Flex>
       </Box>
     </>
   );
