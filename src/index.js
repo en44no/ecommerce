@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import { ChakraProvider } from '@chakra-ui/react';
@@ -9,7 +9,9 @@ import 'focus-visible/dist/focus-visible';
 ReactDOM.render(
   <React.StrictMode>
     <ChakraProvider theme={theme}>
-      <App />
+      <Suspense fallback="Cargando...">
+        <App />
+      </Suspense>
     </ChakraProvider>
 
   </React.StrictMode>,
