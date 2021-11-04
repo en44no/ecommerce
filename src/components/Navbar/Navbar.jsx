@@ -7,7 +7,6 @@ const Navbar = () => (
   <>
     <Box
       as="nav"
-      display="flex"
       h="5rem"
       top="0"
       left="0"
@@ -19,9 +18,7 @@ const Navbar = () => (
       <Box
         p={5}
         w="100%"
-        display="flex"
         bg="#91D88F"
-        justifyContent="space-between"
         boxShadow="lg"
         mt={3}
         borderRadius="9px"
