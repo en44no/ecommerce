@@ -35,7 +35,7 @@ const CartItem = (props) => {
               transform: 'scale(1.04)',
             }}
           >
-            <Image src={item.image.url} w="auto" h="2rem" objectFit="contain" />
+            <Image src={item.image.url} w="auto" h="2rem" objectFit="contain" loading="lazy" />
           </Box>
           <Text fontSize="17px" mt={2} ml={2} fontWeight="500">{item.name}</Text>
         </Box>

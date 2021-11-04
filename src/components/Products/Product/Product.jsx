@@ -17,6 +17,7 @@ const Product = (props) => {
         w="17rem"
         borderRadius="9px"
         boxShadow="lg"
+        margin={2}
         _hover={{
           transition: 'transform .2s',
           transform: 'scale(1.02)',
@@ -34,7 +35,7 @@ const Product = (props) => {
             transform: 'scale(1.02)',
           }}
         >
-          <Image src={product.image.url} w="100px" h="100px" objectFit="contain" />
+          <Image src={product.image.url} w="100px" h="100px" objectFit="contain" loading="lazy" />
         </Box>
         <Box mt={4} display="flex" justifyContent="space-between">
           <Box>
