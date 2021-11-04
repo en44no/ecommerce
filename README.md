@@ -1,10 +1,8 @@
 ## 📷 Screenshots
 
->![image](https://user-images.githubusercontent.com/57118285/140373518-f84fe10c-f2c9-4939-ae7a-7cd0ca21fd6e.png)
->
->![image](https://user-images.githubusercontent.com/57118285/140373620-8dcdbcc0-53e7-496c-bb4a-d07456b1be69.png)
->![image](https://user-images.githubusercontent.com/57118285/140373832-a5a71b78-d8e3-4564-86df-b29609695000.png)
-
+>![image](https://user-images.githubusercontent.com/57118285/140376901-d7105d96-f5c6-4d6a-a99d-cb4a842fb554.png)
+>![image](https://user-images.githubusercontent.com/57118285/140377054-200193d2-8db2-4042-b408-9f6648c45b4b.png)
+>![image](https://user-images.githubusercontent.com/57118285/140377217-74de573a-7d26-4a2f-a6a2-0cee00e8f7da.png)
 
 ## ⚙ Technologies
 
