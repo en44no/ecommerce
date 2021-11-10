@@ -39,10 +39,10 @@ const CartDrawer = (props) => {
           p={2}
         >
           <DrawerCloseButton color="#000" mt={2} />
-          <DrawerHeader color="#000">Tu carrito de compras</DrawerHeader>
+          <DrawerHeader color="#000" />
           {totalItems > 0
             && (
-              <Text color="#000" fontSize="15px" fontWeight="500" mr={8} mt={-2} pb={1} display="flex" justifyContent="end">
+              <Text color="#000" fontSize="15px" fontWeight="500" ml={7} mt={-2} pb={1} display="flex" justifyContent="start">
                 Seleccionaste
                 {' '}
                 {totalItems}
