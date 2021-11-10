@@ -16,7 +16,7 @@ import Cart from './Cart';
 const CartDrawer = (props) => {
   const {
     totalItems,
-    cart, maxSameItemsOnCart, updateCart, emptyCart, removeItem,
+    cart, maxSameItemsOnCart, updateCart, emptyCart, removeItem, maxItemsOnCart,
   } = props;
   const { isOpen, onOpen, onClose } = useDisclosure();
 
@@ -39,6 +39,16 @@ const CartDrawer = (props) => {
         >
           <DrawerCloseButton mt={2} />
           <DrawerHeader>Tu carrito de compras</DrawerHeader>
+          {totalItems > 0
+            && (
+              <Text fontSize="15px" fontWeight="500" mr={8} mt={-2} pb={1} display="flex" justifyContent="end">
+                Seleccionaste
+                {' '}
+                {totalItems}
+                {' '}
+                <Text ml={1}>{totalItems > 1 ? 'productos' : 'producto'}</Text>
+              </Text>
+            )}
           <DrawerBody>
             <Cart
               cart={cart}
@@ -46,14 +56,16 @@ const CartDrawer = (props) => {
               updateCart={updateCart}
               removeItem={removeItem}
               emptyCart={emptyCart}
+              maxItemsOnCart={maxItemsOnCart}
+              totalItems={totalItems}
             />
           </DrawerBody>
         </DrawerContent>
       </Drawer>
       <Box
         position="fixed"
-        right="50"
-        top="8"
+        right="59"
+        top="6"
         zIndex="100"
         onClick={onOpen}
         cursor="pointer"
@@ -66,7 +78,7 @@ const CartDrawer = (props) => {
         <Box
           colorScheme="teal"
         >
-          <MdShoppingCart fontSize={30} />
+          <MdShoppingCart color="#fff" fontSize={30} />
         </Box>
       </Box>
     </>
