@@ -7,12 +7,15 @@ import Product from './Product/Product';
 const Products = (props) => {
   const {
     products, addToCart, maxSameItemsOnCart, productIsOnCart, removeItem,
+    maxItemsOnCart, totalItems,
   } = props;
 
   return (
     <>
-      <Box position="relative" top="5.5rem" h="100vh" px={5}>
+      <Box position="relative" h="100vh">
         <Flex
+          position="relative"
+          top="5rem"
           justifyContent="center"
           flexWrap="wrap"
         >
@@ -25,12 +28,12 @@ const Products = (props) => {
                   maxSameItemsOnCart={maxSameItemsOnCart}
                   productIsOnCart={productIsOnCart}
                   removeItem={removeItem}
+                  maxItemsOnCart={maxItemsOnCart}
+                  totalItems={totalItems}
                 />
-
               </GridItem>
             ))
           )}
-
         </Flex>
       </Box>
     </>
