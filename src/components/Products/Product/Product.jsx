@@ -66,7 +66,7 @@ const Product = (props) => {
           </Box>
           <Text color="#fff" fontSize="18px" fontWeight="bold">{product.price.formatted_with_symbol}</Text>
         </Box>
-        <Button fontSize="15px" boxShadow="lg" disabled={productIsOnCart(product.id) ? 'true' : ''} mt={4} w="100%" onClick={() => (productIsOnCart(product.id) ? removeItem(product.id) : handleAddToCart())} leftIcon={productIsOnCart(product.id) ? <MdOutlineDone fontSize={20} /> : <MdOutlineAddShoppingCart fontSize={20} />}>{productIsOnCart(product.id) ? 'Agregado a tu carrito' : 'Agregar al carrito'}</Button>
+        <Button _hover={{ backgroundColor: '#D6DBE3' }} fontSize="15px" boxShadow="lg" disabled={productIsOnCart(product.id) ? 'true' : ''} mt={4} w="100%" onClick={() => (productIsOnCart(product.id) ? removeItem(product.id) : handleAddToCart())} leftIcon={productIsOnCart(product.id) ? <MdOutlineDone fontSize={20} /> : <MdOutlineAddShoppingCart fontSize={20} />}>{productIsOnCart(product.id) ? 'Agregado a tu carrito' : 'Agregar al carrito'}</Button>
       </Box>
     </>
   );

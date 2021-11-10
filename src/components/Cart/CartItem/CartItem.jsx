@@ -69,12 +69,13 @@ const CartItem = (props) => {
       </Box>
       <Box display="flex" justifyContent="space-between" mt={4}>
         <Box display="flex" bg="#E2E8F0" borderRadius="9px" boxShadow="lg">
-          <Button fontSize="xl" fontWeight="bold" h={9} onClick={() => updateCart(item.id, item.quantity - 1, true)}>-</Button>
-          <Text px={2} fontSize="md" fontWeight="500" mt={1.5}>{item.quantity}</Text>
+          <Button fontSize="xl" fontWeight="bold" h={9} color="#000" onClick={() => updateCart(item.id, item.quantity - 1, true)}>-</Button>
+          <Text px={2} fontSize="md" fontWeight="500" mt={1.5} color="#000">{item.quantity}</Text>
           <Button
             fontWeight="bold"
             fontSize="xl"
             h={9}
+            color="#000"
             onClick={handleUpdateCart}
           >
             +

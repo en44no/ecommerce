@@ -32,16 +32,17 @@ const CartDrawer = (props) => {
         <DrawerOverlay />
         <DrawerContent
           id="hola"
+          bg="#fff"
           margin={3}
           borderRadius="9px"
           boxShadow="md"
           p={2}
         >
-          <DrawerCloseButton mt={2} />
-          <DrawerHeader>Tu carrito de compras</DrawerHeader>
+          <DrawerCloseButton color="#000" mt={2} />
+          <DrawerHeader color="#000">Tu carrito de compras</DrawerHeader>
           {totalItems > 0
             && (
-              <Text fontSize="15px" fontWeight="500" mr={8} mt={-2} pb={1} display="flex" justifyContent="end">
+              <Text color="#000" fontSize="15px" fontWeight="500" mr={8} mt={-2} pb={1} display="flex" justifyContent="end">
                 Seleccionaste
                 {' '}
                 {totalItems}

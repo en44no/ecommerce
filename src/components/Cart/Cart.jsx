@@ -30,17 +30,17 @@ const Cart = (props) => {
       </Box>
       <Box w="104%" ml={-2} position="sticky" bottom={-2} bg="#fff" borderBottomLeftRadius="9px" borderBottomEndRadius="9px" p={4}>
         <Box>
-          <Text fontSize="lg" fontWeight="bold" textAlign="right">
+          <Text fontSize="lg" fontWeight="bold" textAlign="right" color="#000">
             Total:
             {` ${cart.subtotal.formatted_with_symbol}`}
           </Text>
         </Box>
         <Box mt={3} position="relative" bottom="0" display="flex" justifyContent="space-between">
-          <Button boxShadow="lg" onClick={emptyCart}>
+          <Button boxShadow="md" onClick={emptyCart} color="#000">
             Vaciar carrito
           </Button>
           <Link isExternal href={`https://wa.me/59894018406?text=${encodeURIComponent(`Hola! Quisiera pedir: ${text}`)}`}>
-            <Button leftIcon={<BsWhatsapp size="1.1rem" />} boxShadow="lg" colorScheme="blue" bg="#658FA1">
+            <Button leftIcon={<BsWhatsapp size="1.1rem" />} boxShadow="lg" color="#fff" variant="whatsapp">
               Terminar pedido
             </Button>
           </Link>
@@ -52,7 +52,7 @@ const Cart = (props) => {
   return (
     <>
       <Box />
-      {isEmpty ? <Text fontSize="lg" textAlign="center">No tienes productos aún.</Text> : cartWithProducts()}
+      {isEmpty ? <Text fontSize="lg" color="#000" textAlign="center">No tienes productos aún.</Text> : cartWithProducts()}
     </>
   );
 };
