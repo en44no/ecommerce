@@ -2,16 +2,42 @@ import React from 'react';
 import {
   Box, Image, Text, Button,
 } from '@chakra-ui/react';
+import { useToast } from '@chakra-ui/toast';
+import Notification from '../../Notification';
 
 const CartItem = (props) => {
+  const toast = useToast();
   const {
-    item, maxSameItemsOnCart, updateCart, removeItem,
+    item, maxSameItemsOnCart, updateCart, removeItem, maxItemsOnCart, totalItems,
   } = props;
+
+  const handleUpdateCart = () => {
+    const sameItemsOnCartId = 'same-items';
+    const maxItemsOnCartId = 'max-items';
+
+    if (item.quantity === maxSameItemsOnCart) {
+      if (!toast.isActive(sameItemsOnCartId)) {
+        Notification(
+          'Error al agregar el producto.',
+          `No puedes agregar más de ${maxSameItemsOnCart} productos iguales.`, sameItemsOnCartId,
+        );
+      }
+    } else if (maxItemsOnCart === totalItems) {
+      if (!toast.isActive(maxItemsOnCartId)) {
+        Notification(
+          'Error al agregar el producto.',
+          `No puedes agregar más de ${maxItemsOnCart} productos.`, maxItemsOnCartId,
+        );
+      }
+    } else {
+      updateCart(item.id, item.quantity + 1);
+    }
+  };
 
   return (
     <Box
       p="5"
-      bg="#85C985"
+      bg="#2D7FA1"
       borderRadius="9px"
       mb={3}
       boxShadow="lg"
@@ -26,7 +52,7 @@ const CartItem = (props) => {
             py={1.5}
             w="3rem"
             boxShadow="lg"
-            bg="#537D53"
+            bg="#658FA1"
             borderRadius="7px"
             display="flex"
             justifyContent="center"
@@ -37,9 +63,9 @@ const CartItem = (props) => {
           >
             <Image src={item.image.url} w="auto" h="2rem" objectFit="contain" loading="lazy" />
           </Box>
-          <Text fontSize="17px" mt={2} ml={2} fontWeight="500">{item.name}</Text>
+          <Text color="#fff" fontSize="17px" mt={2} ml={2} fontWeight="500">{item.name}</Text>
         </Box>
-        <Text fontSize="17px" fontWeight="bold" mt={2}>{item.line_total.formatted_with_symbol}</Text>
+        <Text color="#fff" fontSize="17px" fontWeight="bold" mt={2}>{item.line_total.formatted_with_symbol}</Text>
       </Box>
       <Box display="flex" justifyContent="space-between" mt={4}>
         <Box display="flex" bg="#E2E8F0" borderRadius="9px" boxShadow="lg">
@@ -49,9 +75,7 @@ const CartItem = (props) => {
             fontWeight="bold"
             fontSize="xl"
             h={9}
-            onClick={() => updateCart(item.id, item.quantity
-            < maxSameItemsOnCart ? item.quantity + 1
-              : item.quantity)}
+            onClick={handleUpdateCart}
           >
             +
 
