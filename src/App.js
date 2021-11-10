@@ -47,28 +47,15 @@ const App = () => {
     if (product) {
       return;
     }
-    if (cart.total_items < maxItemsOnCart) {
-      const response = await commerce.cart.add(productId, quantity);
+    const response = await commerce.cart.add(productId, quantity);
 
-      await setCart(response.cart);
-    } else {
-      alert('El carrito solo puede tener 30 productos');
-    }
+    await setCart(response.cart);
   };
 
-  const updateCartQuantity = async (productId, quantity, down = false) => {
-    if (cart.total_items < maxItemsOnCart) {
-      const response = await commerce.cart.update(productId, { quantity });
+  const updateCartQuantity = async (productId, quantity) => {
+    const response = await commerce.cart.update(productId, { quantity });
 
-      setCart(response.cart);
-    } else if
-    (down) {
-      const response = await commerce.cart.update(productId, { quantity });
-
-      setCart(response.cart);
-    } else {
-      alert('El carrito solo puede tener 30 productos');
-    }
+    setCart(response.cart);
   };
 
   const emptyCart = async () => {
@@ -91,6 +78,8 @@ const App = () => {
         maxSameItemsOnCart={maxSameItemsOnCart}
         productIsOnCart={checkIfProductIsOnCart}
         removeItem={removeCartItem}
+        totalItems={cart.total_items}
+        maxItemsOnCart={maxItemsOnCart}
       />
       <CartDrawer
         totalItems={cart.total_items}
@@ -99,6 +88,7 @@ const App = () => {
         updateCart={updateCartQuantity}
         removeItem={removeCartItem}
         emptyCart={emptyCart}
+        maxItemsOnCart={maxItemsOnCart}
       />
     </>
   );
