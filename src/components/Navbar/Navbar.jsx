@@ -4,6 +4,8 @@ import {
 } from '@chakra-ui/react';
 import Search from './Search';
 
+import Settings from '../../settings.json';
+
 const Navbar = (props) => {
   const { searchProduct } = props;
 
@@ -28,7 +30,7 @@ const Navbar = (props) => {
         >
           <Grid templateColumns="repeat(5, 1fr)" gap={6} w="100%">
             <Box w="100%" h="10">
-              <Text fontSize="xl" color="#fff" fontWeight="bold" mt={1} ml={10}>Almacén</Text>
+              <Text fontSize="xl" color="#fff" fontWeight="bold" mt={1} ml={10}>{Settings.app_name}</Text>
             </Box>
             <Box />
             <Box w="100%" h="10">
