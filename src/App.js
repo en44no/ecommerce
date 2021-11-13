@@ -8,11 +8,18 @@ const App = () => {
   const [cart, setCart] = useState([]);
   const maxSameItemsOnCart = 9;
   const maxItemsOnCart = 30;
+  const [filterText, setFilterText] = useState('');
+  const [isLoading, setIsLoading] = useState(true);
+
+  const searchProduct = (productName) => {
+    setFilterText(productName);
+  };
 
   const fetchProducts = async () => {
     const { data } = await commerce.products.list();
 
     setProducts(data);
+    setIsLoading(false);
   };
 
   const fetchCart = async () => {
@@ -71,7 +78,7 @@ const App = () => {
 
   return (
     <>
-      <Navbar />
+      <Navbar searchProduct={searchProduct} />
       <Products
         products={products}
         addToCart={addToCart}
@@ -80,6 +87,9 @@ const App = () => {
         removeItem={removeCartItem}
         totalItems={cart.total_items}
         maxItemsOnCart={maxItemsOnCart}
+        filterText={filterText}
+        setProducts={setProducts}
+        isLoading={isLoading}
       />
       <CartDrawer
         totalItems={cart.total_items}
