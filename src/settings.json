@@ -1,0 +1,5 @@
+{
+  "app_name": "Almacén",
+  "max_items_on_cart": 30,
+  "max_same_items_on_cart": 9
+}
