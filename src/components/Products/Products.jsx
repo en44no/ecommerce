@@ -7,8 +7,10 @@ import Product from './Product/Product';
 const Products = (props) => {
   const {
     products, addToCart, maxSameItemsOnCart, productIsOnCart, removeItem,
-    maxItemsOnCart, totalItems,
+    maxItemsOnCart, totalItems, filterText, isLoading,
   } = props;
+  const productsArray = products.filter((product) => product.name.toLowerCase()
+    .includes(filterText.toLowerCase()));
 
   return (
     <>
@@ -19,8 +21,12 @@ const Products = (props) => {
           justifyContent="center"
           flexWrap="wrap"
         >
-          {!products ? <Text fontSize="2xl" fontWeight="500" mt={5}>Actualmente no contamos con productos.</Text> : (
-            products.map((product) => (
+
+          {isLoading && <Text fontSize="xl" mt={5}>Cargando productos...</Text>}
+          {productsArray.length === 0 && isLoading === false ? (
+            <Text fontSize="xl" mt={5}>No contamos con el producto que buscas.</Text>
+          ) : (
+            productsArray.map((product) => (
               <GridItem key={product.id}>
                 <Product
                   product={product}
@@ -32,8 +38,7 @@ const Products = (props) => {
                   totalItems={totalItems}
                 />
               </GridItem>
-            ))
-          )}
+            )))}
         </Flex>
       </Box>
     </>
