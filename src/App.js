@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Products, Navbar } from './components';
 import CartDrawer from './components/Cart/CartDrawer';
 import commerce from './lib/commerce';
+import Settings from './settings.json';
 
 const App = () => {
   const [products, setProducts] = useState([]);
@@ -82,11 +83,11 @@ const App = () => {
       <Products
         products={products}
         addToCart={addToCart}
-        maxSameItemsOnCart={maxSameItemsOnCart}
+        maxSameItemsOnCart={Settings.max_same_items_on_cart}
         productIsOnCart={checkIfProductIsOnCart}
         removeItem={removeCartItem}
         totalItems={cart.total_items}
-        maxItemsOnCart={maxItemsOnCart}
+        maxItemsOnCart={Settings.max_items_on_cart}
         filterText={filterText}
         setProducts={setProducts}
         isLoading={isLoading}
